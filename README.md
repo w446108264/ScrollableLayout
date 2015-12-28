@@ -4,13 +4,18 @@ ScrollableLayout
 An Android library supports sticking the navigator on the top when ItemView scrolls.
 
 fork and change on [https://github.com/cpoopc/ScrollableLayout](https://github.com/cpoopc/ScrollableLayout) 
-  
+
+scrolling is not smooth, especially on some models .than 
+「 [w446108264/StickHeaderLayout](https://github.com/w446108264/StickHeaderLayout) 」
+
+gif
+ 
+![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/little.gif)
+
 ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/show.gif)
 
 
-![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p1.jpg)  ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p2.jpg)  
- 
-![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p3.jpg)![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p4.jpg)  
+![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p2.jpg)  ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p4.jpg)   
  
 ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p5.jpg)  ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p6.jpg) 
 
