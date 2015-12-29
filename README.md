@@ -48,7 +48,7 @@ and:
 
 ```xml
 dependencies { 
-    compile 'com.github.w446108264: ScrollableLayout:1.0.0'
+    compile 'com.github.w446108264:ScrollableLayout:1.0.1'
 }
 ```
 --
