@@ -48,7 +48,7 @@ public class ScrollableHelper {
     public boolean isTop() {
         View scrollableView = getScrollableView();
         if (scrollableView == null) {
-            throw new NullPointerException("You should call ScrollableHelper.setCurrentScrollableContainer() to set ScrollableContainer.");
+            return false;
         }
         if (scrollableView instanceof AdapterView) {
             return isAdapterViewTop((AdapterView) scrollableView);
