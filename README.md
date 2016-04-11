@@ -24,7 +24,8 @@ gif
 
 * API > 11 
 * Support RecyclerView, ScrollView, ListView, WebView. 
-* Support pulltoRefresh,loadmore
+* Support pulltoRefresh and loadmore
+* Support dynamic headview
 
 # Samples
 
