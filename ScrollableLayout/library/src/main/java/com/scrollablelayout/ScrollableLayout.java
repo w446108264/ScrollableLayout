@@ -98,7 +98,7 @@ public class ScrollableLayout extends LinearLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mHeadView = getChildAt(0);
-        if(mHeadView ！= null){
+        if(mHeadView != null){
             measureChildWithMargins(mHeadView, widthMeasureSpec, 0, MeasureSpec.UNSPECIFIED, 0);
             maxY = mHeadView.getMeasuredHeight();
             mHeadHeight = mHeadView.getMeasuredHeight();
