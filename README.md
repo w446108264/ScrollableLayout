@@ -1,32 +1,35 @@
 ScrollableLayout
 ======================
 
-An Android library supports sticking the navigator on the top when ItemView scrolls.
+> j.s 🇨🇳
+
+
+easy to add a headview for any view and supports sticking the navigator on the top when ItemView scrolls.
 
 fork and change on [https://github.com/cpoopc/ScrollableLayout](https://github.com/cpoopc/ScrollableLayout) 
 
-scrolling is not smooth, especially on some models .than 
-「 [w446108264/StickHeaderLayout](https://github.com/w446108264/StickHeaderLayout) 」
+scrolling is not smooth, especially on some models .
 
-gif
+another choice 「 [w446108264/StickHeaderLayout](https://github.com/w446108264/StickHeaderLayout) 」
  
-![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/little.gif)
-
-![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/show.gif)
-
-
-![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p2.jpg)  ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p4.jpg)   
- 
-![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p5.jpg)  ![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/p6.jpg) 
-
-
 # Features
 
 * API > 11 
-* Support RecyclerView, ScrollView, ListView, WebView. 
+* Support ViewPager, RecyclerView, ScrollView, ListView, WebView
 * Support pulltoRefresh and loadmore
 * Support dynamic headview
+* Easy to add a headview for any view
+ 
+![Art](https://github.com/w446108264/ScrollableLayout/raw/master/output/show.gif)
 
+
+# Screen Recrod
+  
+<img src="https://github.com/w446108264/ScrollableLayout/raw/master/output/p2.jpg" width="24%" /> 
+<img src="https://github.com/w446108264/ScrollableLayout/raw/master/output/p4.jpg" width="24%" /> 
+<img src="https://github.com/w446108264/ScrollableLayout/raw/master/output/p5.jpg" width="24%" />
+<img src="https://github.com/w446108264/ScrollableLayout/raw/master/output/p6.jpg" width="24%" /> 
+  
 # Samples
 
 You can [download a sample APK](https://github.com/w446108264/ScrollableLayout/raw/master/output/simple.apk) 
@@ -49,19 +52,15 @@ and:
 
 ```xml
 dependencies { 
-   compile 'com.github.w446108264:ScrollableLayout:1.0.2'
+   compile 'com.github.w446108264:ScrollableLayout:1.0.3'
 }
 ```
 --
 
 
-# Usage
+# Sample Usage
  
-simple to your proejct
- 
-### Layout
- 
-the frist childview will be ticked on the top.
+
 
 ```xml
       <com.scrollablelayout.ScrollableLayout
@@ -70,6 +69,7 @@ the frist childview will be ticked on the top.
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--the frist childview will follow the scrollview scroll.-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -78,6 +78,9 @@ the frist childview will be ticked on the top.
             android:textColor="#fff"
             android:text="header" />
 
+        <!--the second childview will be a navigator.
+        it will be sticking on the top when ItemView scrolls, 
+        it's not necessary to add if you don't want-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -86,6 +89,7 @@ the frist childview will be ticked on the top.
             android:textColor="#fff"
             android:text="navigationbar" />
 
+        <!--ScrollView support ViewPager, RecyclerView, ScrollView, ListView, WebView-->
         <ListView
             android:id="@+id/vp_scroll"
             android:layout_width="match_parent"
@@ -95,20 +99,11 @@ the frist childview will be ticked on the top.
     </com.scrollablelayout.ScrollableLayout>
 ```
  
-### Simple
-
 ```java
-
-        sl_root = (ScrollableLayout) findViewById(R.id.sl_root);
-        listview = (ListView) findViewById(R.id.vp_scroll);
-        int size = 100;
-        String[] stringArray = new String[size];
-        for (int i = 0; i < size; ++i) {
-            stringArray[i] = ""+i;
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stringArray);
-        listview.setAdapter(adapter);
-        sl_root.getHelper().setCurrentScrollableContainer(listview);
+    // please see the demo
+    sl_root = (ScrollableLayout) findViewById(R.id.sl_root);
+    listview = (ListView) findViewById(R.id.vp_scroll); 
+    sl_root.getHelper().setCurrentScrollableContainer(listview);
 
 ```
  

@@ -1,7 +1,10 @@
 package com.scrollablelayout.simple;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,5 +37,16 @@ public class TestActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stringArray);
         listview.setAdapter(adapter);
         sl_root.getHelper().setCurrentScrollableContainer(listview);
+
+        TextView tv = (TextView) findViewById(R.id.tv_right);
+        tv.setText("Github");
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://github.com/w446108264/ScrollableLayout");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
 }

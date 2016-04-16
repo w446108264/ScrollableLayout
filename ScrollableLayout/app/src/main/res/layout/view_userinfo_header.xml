@@ -175,7 +175,7 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:layout_centerHorizontal="true"
-        android:text="https://github.com/w446108264"
+        android:text="https://github.com/w446108264/ScrollableLayout"
         android:textColor="#7e7e7e"
         android:textSize="13sp" />
 

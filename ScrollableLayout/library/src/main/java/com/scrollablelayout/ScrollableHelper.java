@@ -4,7 +4,6 @@ package com.scrollablelayout;
 import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -106,8 +105,8 @@ public class ScrollableHelper {
         return false;
     }
 
-    private static boolean isWebViewTop(WebView scrollView){
-        if(scrollView != null) {
+    private static boolean isWebViewTop(WebView scrollView) {
+        if (scrollView != null) {
             int scrollViewY = scrollView.getScrollY();
             return scrollViewY <= 0;
         }
@@ -128,6 +127,8 @@ public class ScrollableHelper {
             ((ScrollView) scrollableView).fling(velocityY);
         } else if (scrollableView instanceof RecyclerView) {
             ((RecyclerView) scrollableView).fling(0, velocityY);
+        } else if (scrollableView instanceof WebView) {
+            ((WebView)scrollableView).flingScroll(0,velocityY);
         }
     }
 }
