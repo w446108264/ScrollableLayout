@@ -55,7 +55,6 @@ dependencies {
    compile 'com.github.w446108264:ScrollableLayout:1.0.3'
 }
 ```
---
 
 
 # Sample Usage
