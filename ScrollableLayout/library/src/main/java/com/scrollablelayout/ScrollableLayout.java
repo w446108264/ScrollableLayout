@@ -53,6 +53,7 @@ public class ScrollableLayout extends LinearLayout {
 
     private int mCurY;
     private boolean isClickHead;
+    private boolean isDamping;
     private int mScrollMinY = 10;
 
     enum DIRECTION {
@@ -76,7 +77,9 @@ public class ScrollableLayout extends LinearLayout {
         return mHelper;
     }
 
-    public ScrollableLayout(Context context) { this(context, null); }
+    public ScrollableLayout(Context context) {
+        this(context, null);
+    }
 
     public ScrollableLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -98,7 +101,7 @@ public class ScrollableLayout extends LinearLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mHeadView = getChildAt(0);
-        if(mHeadView != null){
+        if (mHeadView != null) {
             measureChildWithMargins(mHeadView, widthMeasureSpec, 0, MeasureSpec.UNSPECIFIED, 0);
             maxY = mHeadView.getMeasuredHeight();
             mHeadHeight = mHeadView.getMeasuredHeight();
@@ -184,6 +187,7 @@ public class ScrollableLayout extends LinearLayout {
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                checkDamping();
                 if (flag2 && shiftY > shiftX && shiftY > mTouchSlop) {
                     mVelocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
                     float yVelocity = -mVelocityTracker.getYVelocity();
@@ -249,9 +253,10 @@ public class ScrollableLayout extends LinearLayout {
                 }
             } else {
                 if (mHelper.isTop()) {
-                    int deltaY = (currY - mLastScrollerY);
+/*                    int deltaY = (currY - mLastScrollerY);
                     int toY = getScrollY() + deltaY;
-                    scrollTo(0, toY);
+                    scrollTo(0, toY);*/
+                    checkDamping();
                     if (mCurY <= minY) {
                         mScroller.forceFinished(true);
                         return;
@@ -309,6 +314,27 @@ public class ScrollableLayout extends LinearLayout {
             mVelocityTracker.recycle();
             mVelocityTracker = null;
         }
+    }
+
+
+    private void checkDamping() {
+        if(isDamping){
+            if (isClickHead || !isSticked()) {
+                if (maxY / 2 < mCurY) {
+                    scrollTo(0, mHeadHeight);
+                } else {
+                    scrollTo(0, 0);
+                }
+            }
+        }
+    }
+
+    public boolean isDamping() {
+        return isDamping;
+    }
+
+    public void setDamping(boolean damping) {
+        isDamping = damping;
     }
 
     private void checkIsClickHead(int downY, int headHeight, int scrollY) {
