@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 Log.d("onScroll",translationY+"/"+maxY);
                 translationY = -translationY;
                 if (titleMaxScrollHeight == 0) {
-                    //头部bar的高度
                     titleMaxScrollHeight = ((View) tv_title.getParent()).getBottom() - tv_title.getTop();
                     maxScrollHeight = hearderMaxHeight + titleMaxScrollHeight;
                 }
