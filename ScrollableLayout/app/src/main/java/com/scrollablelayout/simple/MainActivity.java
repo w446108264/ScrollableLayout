@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -75,9 +76,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         iv_spit.setVisibility(View.GONE);
         tv_title.setTranslationY(-1000);
+        sl_root.setDamping(true);
+        sl_root.computeScroll();
         sl_root.setOnScrollListener(new ScrollableLayout.OnScrollListener() {
             @Override
             public void onScroll(int translationY, int maxY) {
+                Log.d("onScroll",translationY+"/"+maxY);
                 translationY = -translationY;
                 if (titleMaxScrollHeight == 0) {
                     titleMaxScrollHeight = ((View) tv_title.getParent()).getBottom() - tv_title.getTop();
@@ -99,6 +103,10 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 } else {
                     iv_spit.setVisibility(View.GONE);
                 }
+                if (-translationY < hearderMaxHeight) {
+                    iv_avatar.setScaleX((hearderMaxHeight+translationY)/hearderMaxHeight);
+                    iv_avatar.setScaleY((hearderMaxHeight+translationY)/hearderMaxHeight);
+                }
 
                 iv_spit.getBackground().setAlpha(alpha);
 
@@ -106,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             }
         });
 
+        pfl_root.setPullToRefresh(false);
         pfl_root.setEnabledNextPtrAtOnce(true);
         pfl_root.setLastUpdateTimeRelateObject(this);
         pfl_root.setPtrHandler(this);

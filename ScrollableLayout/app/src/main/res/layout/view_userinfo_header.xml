@@ -15,6 +15,7 @@
         android:id="@+id/iv_avatar_alpha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_alignBottom="@+id/iv_avatar"
         android:layout_alignLeft="@+id/iv_avatar"
         android:layout_alignRight="@+id/iv_avatar"
